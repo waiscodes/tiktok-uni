@@ -1,5 +1,6 @@
 <template>
   <video id="myVideo" class="video-js vjs-default-skin" playsinline></video>
+  updated
 </template>
 
 <script>
@@ -10,20 +11,9 @@ import videojs from "video.js";
 
 import "webrtc-adapter";
 import RecordRTC from "recordrtc";
-
-// the following imports are only needed when you're recording
-// audio-only using the videojs-wavesurfer plugin
-/*
-    import WaveSurfer from 'wavesurfer.js';
-    import MicrophonePlugin from 'wavesurfer.js/dist/plugin/wavesurfer.microphone.js';
-    WaveSurfer.microphone = MicrophonePlugin;
-
-    // register videojs-wavesurfer plugin
-    import videojs_wavesurfer_css from 'videojs-wavesurfer/dist/css/videojs.wavesurfer.css';
-    import Wavesurfer from 'videojs-wavesurfer/dist/videojs.wavesurfer.js';
-    */
-
 import Record from "videojs-record/dist/videojs.record.js";
+
+import firebase from "firebase";
 
 export default {
   data() {
@@ -105,7 +95,12 @@ export default {
       // can be downloaded by the user, stored on server etc.
       console.log("finished recording: ", this.player.recordedData);
 
-      this.player.record().saveAs({ video: "my-video-file-name.webm" });
+      // this.player.record().saveAs({ video: "my-video-file-name.mp4" });
+
+      firebase
+        .storage()
+        .ref("my-video-fire-name.mp4")
+        .put(this.video);
     });
 
     // error handling
