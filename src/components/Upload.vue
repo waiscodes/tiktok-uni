@@ -2,7 +2,7 @@
   <div>
     <div>
       <p>Upload an image to Firebase:</p>
-      <input type="file" @change="previewImage" accept="image/*" />
+      <input type="file" @change="previewImage" accept="video/*" />
     </div>
     <div>
       <p>
