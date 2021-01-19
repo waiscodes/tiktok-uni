@@ -2,7 +2,7 @@
   <div>
     <div>
       <p>Upload an image to Firebase:</p>
-      <input type="file" @change="previewImage" accept="video/*" />
+      <input type="file" @change="previewImage" />
     </div>
     <div>
       <p>
@@ -12,6 +12,7 @@
     </div>
     <div v-if="imageData != null">
       <iframe width="420" height="345" :src="picture"> </iframe>
+      <img :src="picture" alt="" />
       <br />
       <button @click="onUpload">Upload</button>
     </div>
@@ -65,6 +66,6 @@ export default {
 </script>
 <style scoped="">
 img.preview {
-  width: 200px;
+  min-width: 200px;
 }
 </style>
