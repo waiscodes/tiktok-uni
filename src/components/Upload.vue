@@ -11,7 +11,7 @@
       </p>
     </div>
     <div v-if="imageData != null">
-      <img class="preview" :src="picture" />
+      <iframe width="420" height="345" :src="picture"> </iframe>
       <br />
       <button @click="onUpload">Upload</button>
     </div>
